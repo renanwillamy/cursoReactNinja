@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "create-react-class": "^15.6.3",
+    "standard": "^11.0.1",
+    "standard-loader": "^4.0.0",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5",
+    "webpack-validator": "^3.0.0"
+  },
+  "dependencies": {
+    "react": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-hot-loader": "^4.0.0"
+  }
+}
