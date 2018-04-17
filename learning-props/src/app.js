@@ -2,13 +2,13 @@
 
 import React, {Component} from 'react'
 import Square from './Square'
+import Button from './button'
+import LikeButton from './likeButton'
 
 class App extends Component {
   render () {
     return <div className='container'>
-      {['green', 'gray', 'yellow', 'orange'].map((squareColor) => (
-        <Square key={squareColor} color={squareColor} />
-      ))}
+        <LikeButton />
     </div>
   }
 }

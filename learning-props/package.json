@@ -14,5 +14,10 @@
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-hot-loader": "^4.0.0"
+  },
+  "standard":{
+    "globals":[
+      "alert"
+    ]
   }
 }
