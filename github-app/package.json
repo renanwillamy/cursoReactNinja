@@ -11,12 +11,13 @@
     "webpack-validator": "^3.0.0"
   },
   "dependencies": {
+    "@fdaciuk/ajax": "^2.1.2",
     "react": "15.1.0",
     "react-dom": "15.1.0",
     "react-hot-loader": "^4.0.0"
   },
-  "standard":{
-    "globals":[
+  "standard": {
+    "globals": [
       "alert"
     ]
   }

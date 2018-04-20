@@ -1,15 +1,15 @@
 'use strict'
 
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Repos from './repos'
 import Search from './search'
 import UserInfo from './user-info'
 import Actions from './actions'
 
-const AppContent = ({ userInfo, repos, starred }) => (
+const AppContent = ({ userInfo, repos, starred, handleSearch }) => (
   <div className='app'>
-    <Search />
-    {!!userInfo && <UserInfo />}
+    <Search handleSearch={handleSearch} />
+    {!!userInfo && <UserInfo userInfo={userInfo} />}
     {!!userInfo && <Actions />}
     {!!repos.length &&
     <Repos className='repos'
@@ -21,5 +21,10 @@ const AppContent = ({ userInfo, repos, starred }) => (
       repos={starred} />}
   </div>
 )
+
+AppContent.propTypes = {
+  repos: PropTypes.array.isRequired,
+  starred: PropTypes.array.isRequired
+}
 
 export default AppContent
