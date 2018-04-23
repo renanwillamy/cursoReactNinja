@@ -18,7 +18,9 @@ class App extends Component {
     const value = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
+    const target = e.target
     if (keyCode === ENTER) {
+      target.disabled = true
       ajax().get(`https://api.github.com/users/${value}`)
         .then((result) => {
           this.setState({
@@ -29,9 +31,23 @@ class App extends Component {
               repos: result.public_repos,
               followers: result.followers,
               following: result.following
-            }})
+            },
+            repos: [],
+            starred: []
+          })
+        }).always(() => {
+          target.disabled = false
         })
     }
+  }
+  getRepos (type) {
+    const login = this.state.userInfo.login
+    ajax().get(`https://api.github.com/users/${login}/${type}`)
+      .then((result) => {
+        this.setState(
+          {[type]: result}
+        )
+      })
   }
 
   render () {
@@ -41,6 +57,8 @@ class App extends Component {
         repos={this.state.repos}
         starred={this.state.starred}
         handleSearch={(e) => this.handleSearch(e)}
+        handleStarredClick={() => this.getRepos('starred')}
+        handleReposClick={() => this.getRepos('repos')}
       />
     )
   }
