@@ -6,9 +6,17 @@ import Search from './search'
 import UserInfo from './user-info'
 import Actions from './actions'
 
-const AppContent = ({ userInfo, repos, starred, handleSearch, handleStarredClick, handleReposClick }) => (
+const AppContent = ({
+  userInfo,
+  repos,
+  starred,
+  handleSearch,
+  handleStarredClick,
+  handleReposClick,
+  isFetching }) => (
   <div className='app'>
-    <Search handleSearch={handleSearch} />
+    <Search isDisabled={isFetching} handleSearch={handleSearch} />
+    {isFetching && <div>Carregando...</div>}
     {!!userInfo && <UserInfo userInfo={userInfo} />}
     {!!userInfo && <Actions
       handleStarredClick={handleStarredClick}
@@ -26,7 +34,11 @@ const AppContent = ({ userInfo, repos, starred, handleSearch, handleStarredClick
 
 AppContent.propTypes = {
   repos: PropTypes.array.isRequired,
-  starred: PropTypes.array.isRequired
+  starred: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+  handleReposClick: PropTypes.func.isRequired,
+  handleStarredClick: PropTypes.func.isRequired
 }
 
 export default AppContent
