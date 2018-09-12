@@ -1,5 +1,17 @@
 * {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: black;
+  height: 110px;  
+}
+
+.header h1 {
+  color: white; 
+  text-align: center;
+  padding-top: 10px;
 }
 
 body {
@@ -9,19 +21,17 @@ body {
 }
 
 .app {
-  float: left;
-  padding: 30px;
   width: 100%;
 }
 
 .search {
-  margin-bottom: 30px;
+  float: right;
+  margin-right: 10%;
 }
 
 .search input {
-  font-size: 30px;
+  font-size: 20px;
   padding: 10px;
-  width: 100%;
 }
 
 .user-info img {
@@ -43,7 +53,6 @@ ul {
 .actions,
 .repos,
 .starred {
-  float: left;
   width: 100%;
 }
 
@@ -70,3 +79,33 @@ ul {
   border-top: 1px solid #ccc;
 }
 
+.repos-box {
+  display: flex;  
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.repos-box div {
+  margin: 5px;
+}
+
+.box-1 {
+  width: 48%;
+}
+
+.box-2 {
+  width: 48%;
+}
+
+.body-content {
+  padding: 10px;
+}
+
+.logo-image {  
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+  float: left;  
+  position: absolute;
+  margin-top: 10px;
+}

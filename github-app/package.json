@@ -1,11 +1,20 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix",
+    "test": "jest --coverage",
+    "test:watch": "yarn test --watch"
   },
   "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "chai": "^4.1.2",
     "create-react-class": "^15.6.3",
+    "file-loader": "^1.1.11",
+    "jest-cli": "^23.6.0",
     "standard": "^11.0.1",
     "standard-loader": "^4.0.0",
+    "url-loader": "^1.0.1",
     "webpack": "^1.15.0",
     "webpack-dev-server": "^1.16.5",
     "webpack-validator": "^3.0.0"
@@ -14,11 +23,12 @@
     "@fdaciuk/ajax": "^2.1.2",
     "react": "15.1.0",
     "react-dom": "15.1.0",
-    "react-hot-loader": "^4.0.0"
+    "react-hot-loader": "^4.0.0",
+    "snazzy": "^8.0.0"
   },
   "standard": {
     "globals": [
-      "alert"
+      "alert","test","it","describe"
     ]
   }
 }

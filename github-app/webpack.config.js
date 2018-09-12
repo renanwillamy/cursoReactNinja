@@ -7,10 +7,10 @@ const validate = require('webpack-validator')
 module.exports = validate({
   devtool: 'source-map',
   entry: [
-  'react-hot-loader/patch',
-  'webpack-dev-server/client?http://localhost:3000',
-  'webpack/hot/only-dev-server',
-  path.join(__dirname, 'src', 'index')
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    path.join(__dirname, 'src', 'index')
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -18,12 +18,12 @@ module.exports = validate({
     publicPath: '/static/'
   },
 
-  plugins:[
+  plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
 
   module: {
-    preLoaders:[{
+    preLoaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
       include: /src/,
@@ -34,6 +34,8 @@ module.exports = validate({
       exclude: /node_modules/,
       include: /src/,
       loader: 'babel'
-    }]
+    },
+    { test: /\.(png|jpg)$/,
+      loader: 'url-loader?limit=8192' }]
   }
 })
